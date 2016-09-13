@@ -27,17 +27,6 @@ public class AccountServiceImpl {
             System.out.println("Transaction failed!");
         } else {
             createTransaction(em, accounts, amount, currency);
-
-            Query query1 = em.createQuery("SELECT a FROM Account a WHERE a.accNumber = ?1", Account.class);
-            query1.setParameter(1, account1);
-            Account acc1 = new Account();
-            acc1 = (Account) query1.getSingleResult();
-            System.out.println(acc1.getDebitTransactionList());
-            Query query2 = em.createQuery("SELECT a FROM Account a WHERE a.accNumber = ?1", Account.class);
-            query2.setParameter(1, account2);
-            Account acc2 = new Account();
-            acc2 = (Account) query1.getSingleResult();
-            System.out.println(acc2.getCreditTransactionList());
         }
         em.clear();
     }
@@ -64,18 +53,6 @@ public class AccountServiceImpl {
         } else {
             createTransaction(em, accounts, amount, currency);
         }
-
-        Query query1 = em.createQuery("SELECT a FROM Account a WHERE a.accNumber = ?1", Account.class);
-        query1.setParameter(1, account1);
-        Account acc1 = new Account();
-        acc1 = (Account) query1.getSingleResult();
-        System.out.println(acc1.getDebitTransactionList());
-        Query query2 = em.createQuery("SELECT a FROM Account a WHERE a.accNumber = ?1", Account.class);
-        query2.setParameter(1, account2);
-        Account acc2 = new Account();
-        acc2 = (Account) query2.getSingleResult();
-        System.out.println(acc2.getCreditTransactionList());
-
         em.clear();
     }
 
@@ -94,7 +71,6 @@ public class AccountServiceImpl {
         List<Account> accounts = client.getAccounts();
         for (Account acc : accounts) {
             List<Transaction> debit = acc.getDebitTransactionList();
-            System.out.println(debit);
             for (Transaction t : debit) {
                 if (t.getCurrency().equals(Currency.UAH)) {
                     sum += t.getAmount();
@@ -110,9 +86,7 @@ public class AccountServiceImpl {
                     }
                 }
             }
-            System.out.println("___");
             List<Transaction> credit = acc.getCreditTransactionList();
-            System.out.println(credit);
             for (Transaction t : credit) {
                 if (t.getCurrency().equals(Currency.UAH)) {
                     sum -= t.getAmount();
@@ -128,7 +102,6 @@ public class AccountServiceImpl {
                     }
                 }
             }
-            System.out.println("*******************");
         }
         System.out.println(sum);
     }
@@ -156,7 +129,6 @@ public class AccountServiceImpl {
             query.setParameter(1, acc2.getCurrency());
             query.setParameter(2, acc1.getCurrency());
             rate = (ExchangeRate) query.getSingleResult();
-            System.out.println(rate);
         } catch (NoResultException e) {
             System.out.println("Exchange rate not found!");
         }
@@ -186,7 +158,6 @@ public class AccountServiceImpl {
             Query query2 = em.createQuery("SELECT a FROM Account a WHERE a.accNumber = ?1", Account.class);
             query2.setParameter(1, checkAcc2);
             acc2 = (Account) query2.getSingleResult();
-
         } catch (NoResultException e) {
             System.out.println("Account not found!");
         }
@@ -227,7 +198,6 @@ public class AccountServiceImpl {
             Query query2 = em.createQuery("SELECT a FROM Account a WHERE a.accNumber = ?1", Account.class);
             query2.setParameter(1, checkAcc2);
             acc2 = (Account) query2.getSingleResult();
-
         } catch (NoResultException e) {
             System.out.println("Account not found!");
         }
