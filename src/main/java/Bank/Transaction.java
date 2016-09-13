@@ -28,9 +28,7 @@ public class Transaction {
     }
 
     public Transaction(Account debitAcc, Account creditAcc, long amount, Currency currency) {
-//        this.debitAcc = debitAcc;
         debitAcc.addDebitTransaction(this);
-//        this.creditAcc = creditAcc;
         creditAcc.addCreditTransaction(this);
         this.amount = amount;
         this.currency = currency;

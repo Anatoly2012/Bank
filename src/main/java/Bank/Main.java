@@ -15,75 +15,6 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
         try {
-//            em.getTransaction().begin();
-//            try {
-//                ExchangeRate rate = new ExchangeRate(Currency.USD, Currency.UAH, 26.637804);
-//                em.persist(rate);
-//                em.getTransaction().commit();
-//            } catch (Exception e) {
-//                em.getTransaction().rollback();
-//            }
-//            em.clear();
-//            em.getTransaction().begin();
-//            try {
-//                ExchangeRate rate = new ExchangeRate(Currency.UAH, Currency.USD, 0.037540);
-//                em.persist(rate);
-//                em.getTransaction().commit();
-//            } catch (Exception e) {
-//                em.getTransaction().rollback();
-//            }
-//            em.clear();
-//            em.getTransaction().begin();
-//            try {
-//                ExchangeRate rate = new ExchangeRate(Currency.UAH, Currency.EUR, 0.033233);
-//                em.persist(rate);
-//                em.getTransaction().commit();
-//            } catch (Exception e) {
-//                em.getTransaction().rollback();
-//            }
-//            em.clear();
-//            em.getTransaction().begin();
-//            try {
-//                ExchangeRate rate = new ExchangeRate(Currency.EUR, Currency.UAH, 30.090063);
-//                em.persist(rate);
-//                em.getTransaction().commit();
-//            } catch (Exception e) {
-//                em.getTransaction().rollback();
-//            }
-//            em.clear();
-//            em.getTransaction().begin();
-//            try {
-//                ExchangeRate rate = new ExchangeRate(Currency.USD, Currency.EUR, 0.885269);
-//                em.persist(rate);
-//                em.getTransaction().commit();
-//            } catch (Exception e) {
-//                em.getTransaction().rollback();
-//            }
-//            em.clear();
-//            em.getTransaction().begin();
-//            try {
-//                ExchangeRate rate = new ExchangeRate(Currency.EUR, Currency.USD, 1.129599);
-//                em.persist(rate);
-//                em.getTransaction().commit();
-//            } catch (Exception e) {
-//                em.getTransaction().rollback();
-//            }
-//            em.clear();
-
-//            em.getTransaction().begin();
-//            try {
-//                Client client = new Client();
-//                client = em.find(Client.class, 1L);
-//                Account acc = new Account(26209780013L, client, Currency.EUR);
-//                client.addAccount(acc);
-//                em.persist(client);
-//                em.getTransaction().commit();
-//                System.out.println(acc.getOwner());
-//            } catch (Exception e) {
-//                em.getTransaction().rollback();
-//            }
-//
-//            em.clear();
             while (true) {
                 System.out.println("Chose action:");
                 System.out.println("1 - Refill;");
@@ -110,7 +41,5 @@ public class Main {
             em.close();
             emf.close();
         }
-
     }
 }
-
